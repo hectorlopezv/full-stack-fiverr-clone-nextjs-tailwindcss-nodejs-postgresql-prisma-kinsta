@@ -1,6 +1,6 @@
 import { devtools } from 'zustand/middleware';
 import { create, StateCreator } from 'zustand';
-
+import { immer } from 'zustand/middleware/immer';
 interface BearSlice {
   bears: number;
   addBear: () => void;
@@ -32,9 +32,11 @@ const createFishSlice: StateCreator<
 });
 
 const useBoundStore = create<BearSlice & FishSlice>()(
-  devtools((...a) => ({
-    ...createBearSlice(...a),
-    ...createFishSlice(...a)
-  }))
+  devtools(
+    immer((...a) => ({
+      ...createBearSlice(...a),
+      ...createFishSlice(...a)
+    }))
+  )
 );
 export { useBoundStore };

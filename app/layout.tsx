@@ -1,9 +1,8 @@
 'use client';
-import './globals.css';
-import { Inter } from 'next/font/google';
-import { useBoundStore } from './store/store';
 
-const inter = Inter({ subsets: ['latin'] });
+import { useBoundStore } from './store/store';
+import ReactQueryProvider from './providers/ReactQueryProvider';
+import { SessionProvider } from 'next-auth/react';
 
 export default function RootLayout({
   children
@@ -13,7 +12,11 @@ export default function RootLayout({
   const app = useBoundStore(state => state.bears);
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <SessionProvider>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+        </SessionProvider>
+      </body>
     </html>
   );
 }

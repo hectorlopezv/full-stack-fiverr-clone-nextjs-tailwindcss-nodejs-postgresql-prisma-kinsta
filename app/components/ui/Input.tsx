@@ -1,4 +1,4 @@
-import { cn } from '@/utils/utilscss';
+import { cn } from '@/app/utils/utilscss';
 import { forwardRef } from 'react';
 
 export interface InputProps

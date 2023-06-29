@@ -1,4 +1,4 @@
-import { categories } from '@/utils/categories';
+import { categories } from '@/app/utils/categories';
 import {
   GithubIcon,
   InstagramIcon,

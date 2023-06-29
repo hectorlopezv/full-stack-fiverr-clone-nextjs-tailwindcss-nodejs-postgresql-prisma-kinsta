@@ -1,8 +1,8 @@
 import NextAuth, { AuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import prisma from '@/utils/prisma/prismadb';
-import { nanoid } from 'nanoid';
+import prisma from '@/app/utils/prisma/prismadb';
+
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -15,52 +15,35 @@ export const authOptions: AuthOptions = {
   session: {
     strategy: 'jwt'
   },
-  pages: {
-    signIn: '/sign-in'
-  },
-  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async session({ token, session }) {
       if (token) {
         session.user.id = token.id;
-        session.user.image = token.image;
+
         session.user.name = token.name;
         session.user.email = token.email;
-        session.user.username = token.username;
       }
       return session;
     },
     async jwt({ token, user, account, session }) {
+      console.log({ token, user, account, session });
       const dbUser = await prisma.user.findFirst({
         where: { email: token.email }
       });
       if (!dbUser) {
-        token.id = user!.id;
+        token.id = user.id;
         return token;
       }
 
-      if (!dbUser.username) {
-        await prisma.user.update({
-          where: {
-            id: dbUser.id
-          },
-          data: {
-            username: nanoid(10)
-          }
-        });
-      }
       return {
         id: dbUser.id,
         name: dbUser.name,
         email: dbUser.email,
-        username: dbUser.username,
         image: dbUser.image
-      };
-    },
-    redirect() {
-      return '/';
+      } as any;
     }
-  }
+  },
+  secret: process.env.NEXTAUTH_SECRET
 };
 
 const handler = NextAuth(authOptions);

@@ -1,5 +1,5 @@
 'use client';
-import { categories } from '@/utils/categories';
+import { categories } from '@/app/utils/categories';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -25,8 +25,14 @@ export default function Services({}: Props) {
               router.push(`/search?q=${name.toLowerCase()}`);
             }}
           >
-            <div className="absolute w-[10vw] h-[10vw]">
-              <Image fill src={logo} alt={name} className="rounded-md object-cover" />
+            <div className="">
+              <Image
+                height={40}
+                width={40}
+                src={logo}
+                alt={name}
+                className="rounded-md object-cover"
+              />
             </div>
             <span>{name}</span>
           </li>

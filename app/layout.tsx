@@ -7,8 +7,10 @@ import HeroBanner from './components/HeroBanner';
 import Footer from './components/Footer';
 
 export default function RootLayout({
-  children
+  children,
+  authmodal
 }: {
+  authmodal: React.ReactNode;
   children: React.ReactNode;
 }) {
   const app = useBoundStore(state => state.bears);
@@ -18,6 +20,7 @@ export default function RootLayout({
         <SessionProvider>
           <ReactQueryProvider>
             <HeroBanner>{children}</HeroBanner>
+            {authmodal}
             <Footer />
           </ReactQueryProvider>
         </SessionProvider>

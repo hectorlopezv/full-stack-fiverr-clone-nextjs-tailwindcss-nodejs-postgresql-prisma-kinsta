@@ -22,7 +22,7 @@ function AuthModal({ type }: { type: string }) {
               <button
                 className="border border-slate-300 p-3 font-medium 
               w-80 flex items-center justify-center relative"
-                onClick={() => signIn('google', { redirect: false })}
+                onClick={() => signIn('google')}
               >
                 <div className="absolute left-4 text-2xl text-red-500">
                   <svg

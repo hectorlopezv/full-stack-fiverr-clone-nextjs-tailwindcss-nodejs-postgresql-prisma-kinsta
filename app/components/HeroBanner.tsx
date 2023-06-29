@@ -4,6 +4,8 @@ import { Search } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ReactNode, useEffect, useState } from 'react';
+import { Input } from './ui/Input';
+import { Button } from './ui/Button';
 
 type Props = { children: ReactNode };
 
@@ -18,7 +20,7 @@ export default function HeroBanner({ children }: Props) {
     );
     return () => clearInterval(interval);
   }, [image]);
-  console.log('image', image);
+
   return (
     <>
       <div className="h-[600px] relative bg-cover">
@@ -72,7 +74,28 @@ export default function HeroBanner({ children }: Props) {
             } transition-all duration-1000`}
           />
         </div>
+        <div className="z-1 relative w-[650px] flex justify-center flex-col h-full gap-5 ml-20">
+          <h1 className="text-white text-5xl leading-snug">
+            Find the perfect &nbsp;<i>Freelancing</i> <br />
+            services for your business
+          </h1>
+          <div className="flex items-center pt-1">
+            <div className="relative">
+              <Input
+                className="h-12 w-[450px] rounded-r-none"
+                placeholder="Try building your dream"
+              />
+            </div>
+            <Button
+              size="xl"
+              className="bg-[#1DBF73] text-white px-12 text-lg font-semibold rounded-md rounded-l-none"
+            >
+              Search
+            </Button>
+          </div>
+        </div>
       </div>
+
       {children}
     </>
   );

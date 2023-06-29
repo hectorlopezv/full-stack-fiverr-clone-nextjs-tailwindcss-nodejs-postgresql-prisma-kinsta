@@ -4,6 +4,7 @@ import { useBoundStore } from './store/store';
 import ReactQueryProvider from './providers/ReactQueryProvider';
 import { SessionProvider } from 'next-auth/react';
 import HeroBanner from './components/HeroBanner';
+import Footer from './components/Footer';
 
 export default function RootLayout({
   children
@@ -17,6 +18,7 @@ export default function RootLayout({
         <SessionProvider>
           <ReactQueryProvider>
             <HeroBanner>{children}</HeroBanner>
+            <Footer />
           </ReactQueryProvider>
         </SessionProvider>
       </body>

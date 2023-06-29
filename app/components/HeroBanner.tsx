@@ -93,6 +93,35 @@ export default function HeroBanner({ children }: Props) {
               Search
             </Button>
           </div>
+          <div className="text-white flex gap-4">
+            Popular:{' '}
+            <ul className="flex gap-5">
+              <li
+                className="text-sm py-1 px-2 border rounded-full hover:bg-white 
+              hover:text-black transition-all duration-300 cursor-pointer"
+              >
+                Website Design
+              </li>
+              <li
+                className="text-sm py-1 px-2 border rounded-full hover:bg-white 
+              hover:text-black transition-all duration-300 cursor-pointer"
+              >
+                Mobile Design
+              </li>
+              <li
+                className="text-sm py-1 px-2 border rounded-full hover:bg-white 
+              hover:text-black transition-all duration-300 cursor-pointer"
+              >
+                Logo Design
+              </li>
+              <li
+                className="text-sm py-1 px-2 border rounded-full hover:bg-white 
+              hover:text-black transition-all duration-300 cursor-pointer"
+              >
+                AI Design{' '}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 

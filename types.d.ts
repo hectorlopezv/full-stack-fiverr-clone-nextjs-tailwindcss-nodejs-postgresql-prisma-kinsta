@@ -7,12 +7,13 @@ declare module 'next-auth/jwt' {
     name?: string;
     email?: string;
   }
+
 }
 
 declare module 'next-auth' {
   interface Session {
     user: User & {
-      id?: string;
+      id: string;
     };
   }
 }

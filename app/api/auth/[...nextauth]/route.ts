@@ -2,6 +2,7 @@ import NextAuth, { AuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import prisma from '@/app/utils/prisma/prismadb';
+import { JWT } from 'next-auth/jwt';
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -17,7 +18,7 @@ export const authOptions: AuthOptions = {
   },
   callbacks: {
     async session({ token, session }) {
-      if (token) {
+      if (token && session) {
         session.user.id = token.id;
 
         session.user.name = token.name;
@@ -26,7 +27,6 @@ export const authOptions: AuthOptions = {
       return session;
     },
     async jwt({ token, user, account, session }) {
-      console.log({ token, user, account, session });
       const dbUser = await prisma.user.findFirst({
         where: { email: token.email }
       });
@@ -40,7 +40,10 @@ export const authOptions: AuthOptions = {
         name: dbUser.name,
         email: dbUser.email,
         image: dbUser.image
-      } as any;
+      } as JWT & { id: string };
+    },
+    redirect: async ({ url, baseUrl }) => {
+      return '/';
     }
   },
   secret: process.env.NEXTAUTH_SECRET

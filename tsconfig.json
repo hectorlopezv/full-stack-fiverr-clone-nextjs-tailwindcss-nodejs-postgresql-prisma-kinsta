@@ -23,6 +23,16 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/store/store.ts", "app/store/globalSlice.ts", "app/store/cartSlice.js", "app/page.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "types.d.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/store/store.ts",
+    "app/store/globalSlice.ts",
+    "app/store/cartSlice.js",
+    "app/page.tsx"
+  ],
   "exclude": ["node_modules"]
 }

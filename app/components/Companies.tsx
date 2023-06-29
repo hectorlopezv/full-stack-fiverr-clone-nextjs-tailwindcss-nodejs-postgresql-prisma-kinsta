@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
 
-type Props = {};
 
-export default function Companies({}: Props) {
+
+export default function Companies() {
   return (
     <div
       className="flex items-center justify-center text-gray-400 text-2xl font-bold

@@ -4,9 +4,6 @@ import { cn } from '../utils/utilscss';
 import Link from 'next/link';
 import FiverrLogo from './FiverLogo';
 import { useSession } from 'next-auth/react';
-import { Input } from './ui/Input';
-import { Button } from './ui/Button';
-import { Router, SearchIcon } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 
 type Props = {};

@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-type Props = {};
 
 const popularServicesData = [
   {
@@ -37,7 +36,7 @@ const popularServicesData = [
     image: '/images/service6.jpeg'
   }
 ];
-export default function PopularServices({}: Props) {
+export default function PopularServices() {
   const router = useRouter();
   return (
     <div className="ml-10 my-10">

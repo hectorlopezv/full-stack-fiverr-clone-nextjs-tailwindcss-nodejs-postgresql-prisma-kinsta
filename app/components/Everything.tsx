@@ -2,7 +2,6 @@ import { CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 
-type Props = {};
 const everythingData = [
   {
     title: 'Stick to your budget',
@@ -25,7 +24,7 @@ const everythingData = [
       'Questions? Our round-the-clock support team is available to help anytime, anywhere.'
   }
 ];
-export default function Everything({}: Props) {
+export default function Everything() {
   return (
     <div className="bg-[#f1fdf7] flex py-20 justify-between px-24">
       <div className='px-2'>

@@ -4,9 +4,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-type Props = {};
 
-export default function Services({}: Props) {
+export default function Services() {
   const router = useRouter();
   return (
     <div className="mx-20 my-16">

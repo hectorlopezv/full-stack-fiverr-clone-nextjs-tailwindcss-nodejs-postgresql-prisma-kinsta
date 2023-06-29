@@ -1,10 +1,8 @@
 import AuthModal from '@/app/components/AuthModal';
 
-import { FC } from 'react';
 
-interface pageProps {}
 
-const Page: FC<pageProps> = ({}) => {
+const Page = ({}) => {
   return <AuthModal type="" />;
 };
 

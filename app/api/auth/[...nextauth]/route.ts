@@ -26,7 +26,7 @@ export const authOptions: AuthOptions = {
       }
       return session;
     },
-    async jwt({ token, user, account, session }) {
+    async jwt({ token, user }) {
       const dbUser = await prisma.user.findFirst({
         where: { email: token.email }
       });

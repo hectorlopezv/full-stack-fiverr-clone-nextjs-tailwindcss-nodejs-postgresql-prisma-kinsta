@@ -1,9 +1,6 @@
 {
   "extends": [
-    "eslint:recommended",
-    "plugin:prettier/recommended",
-    "next/core-web-vitals",
-    "plugin:@tanstack/eslint-plugin-query/recommended"
+    "next/core-web-vitals"
   ],
   "plugins": ["prettier"],
   "rules": {

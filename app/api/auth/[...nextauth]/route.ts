@@ -42,7 +42,7 @@ export const authOptions: AuthOptions = {
         image: dbUser.image
       } as JWT & { id: string };
     },
-    redirect: async ({ url, baseUrl }) => {
+    redirect: async () => {
       return '/';
     }
   },

@@ -1,8 +1,7 @@
 import AuthModal from '@/app/components/AuthModal';
 import React from 'react';
 
-type Props = {};
 
-export default function InterceptSignInPage({}: Props) {
+export default function InterceptSignInPage() {
   return <AuthModal type="" />;
 }
